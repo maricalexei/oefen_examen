@@ -1,0 +1,26 @@
+@startuml
+left to right direction
+skinparam packageStyle rectangle
+' Actor Style
+skinparam actorStyle hollow
+' actors
+actor student #line:purple
+rectangle Warehouse {
+    ' in the box
+    (student) -- (login)  #line:purple;line.bold
+    (login) -- (view past lent items)
+    (see open reservations) .> (make a reservation)
+    (view past lent items) .> (see open reservations)  : extends
+    (make a reservation) -.> (1 item at a time) : include
+    (make a reservation) -.> (maximum of 3 per week) : include
+    (1 item at a time) -.> (pickup on date) : extends
+    (maximum of 3 per week) -.> (pickup on date) : extends
+    (pickup on date) .> (register date) : include
+    (pickup on date) -.> (return item) : extends
+    (return item) .> (barcode scanned) : include
+    (barcode scanned) .> (date registered) : include
+    (date registered) .> (item gets status lendable) : include
+
+
+}
+@enduml
