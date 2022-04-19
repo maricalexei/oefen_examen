@@ -1,0 +1,31 @@
+@startuml
+left to right direction
+skinparam packageStyle rectangle
+skinparam actorStyle hollow
+actor administrator
+rectangle warehouse{
+
+        administrator - (overzicht users)
+        administrator - (add users)
+        administrator - (update users)
+        administrator - (delete users)
+        administrator -- (add items)
+        administrator -- (overview items)
+        administrator -- (items convert to barcode)
+        administrator -- (delete items)
+        (delete items) ..> (if the status is loanable) : include
+        (overview items) ..> (shown per 5 items) : include
+        (overview items) --> (can be lendout) : include
+        (can be lendout) ..> (to who) : include
+        (can be lendout) ..> (which items) : include
+        (overview items) --> (can see which is reserved) : include
+        (overview items) --> (can see which is not returned) : include
+        (can see which is not returned) ..> (if returndate is expired) : include
+        (can see which is not returned) --> (button) : include
+        (button) ..> (can send a email to the user) : include
+
+}
+        (ingelogd) .> (administrator) : extends
+        
+  
+@enduml
