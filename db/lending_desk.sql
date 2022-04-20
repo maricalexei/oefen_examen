@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Gegenereerd op: 20 apr 2022 om 07:44
+-- Gegenereerd op: 20 apr 2022 om 08:06
 -- Serverversie: 5.7.36
 -- PHP-versie: 7.4.26
 
@@ -20,6 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `lending_desk`
 --
+CREATE DATABASE IF NOT EXISTS `lending_desk` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `lending_desk`;
 
 -- --------------------------------------------------------
 
