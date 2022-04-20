@@ -16,4 +16,9 @@
                 die("View does not exists.");
             }
         }
+
+        public function redirect($url){
+            header('Location: ' . URLROOT . '/' . $url);
+            exit;
+        }
     }

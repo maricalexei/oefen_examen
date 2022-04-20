@@ -27,4 +27,23 @@ class Items extends Controller {
         $this->view('items/delete', $data);
         header("Refresh:2; url= ../items/index");
     }
+
+    public function create() {
+        $this->view('items/create');
+    }
+
+    //itemcreates the information in database through adminModel
+    public function itemCreate()
+    {
+    //Initiating indexes through $_POST variable
+        $description  = $_POST['description'];
+        $typenr = $_POST['typenr'];
+        $purchasedate = $_POST['purchasedate'];
+        $prijs = $_POST['prijs'];
+
+
+        $this->itemModel->itemCreate($description, $typenr, $purchasedate, $prijs);
+    //Redirect to items index after storing data
+        $this->redirect('items');
+    }
 }
