@@ -8,7 +8,7 @@ class Items extends Controller {
         $itemData = $this->itemModel->getItems();
         $rows = "";
         foreach($itemData as $value) {
-            $rows .= $value->id . " " . $value->description . " " . $value->typenr . " " . $value->purchasedate . " " . $value->prijs . " " . "<a href='../itemsupdate/index'>edit</a>". " " . "<a href='../itemsupdate/index'>delete</a>";
+            $rows .= $value->id . " " . $value->description . " " . $value->typenr . " " . $value->purchasedate . " " . $value->prijs . " " . "<a href='../itemsupdate/index/$value->id'>edit</a>". " " . "<a href='../itemsupdate/index'>delete</a>";
             $rows .= "<br>";
         }
 

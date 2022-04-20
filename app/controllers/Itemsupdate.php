@@ -1,19 +1,18 @@
 <?php
-class Items extends Controller {
+class Itemsupdate extends Controller {
     public function __construct() {
-        $this->itemModel = $this->model('Item');
+        $this->itemModel = $this->model('ItemUpdate');
     }
 
-    public function index() {
-        $itemData = $this->itemModel->getItems();
-        $rows = "";
-        foreach($itemData as $value) {
-            $rows .= $value->id . " " . $value->description . " " . $value->typenr . " " . $value->purchasedate . " " . $value->prijs . " " . "<a href='../itemsupdate/index'>edit</a>". " " . "<a href='../itemsupdate/index'>delete</a>";
-            $rows .= "<br>";
-        }
+    public function index($id = NULL) {
+        //echo $id;exit();
+        $itemData = $this->itemModel->getItems($id);
+        //var_dump($itemData);exit();
+            // $rows = $itemData->id . " " . $itemData->description . " " . $itemData->typenr . " " . $itemData->purchasedate . " " . $itemData->prijs . " " . "<a href='../itemsupdate/index'>edit</a>". " " . "<a href='../itemsupdate/index'>delete</a>";
+            // $rows .= "<br>";
 
         $data = [
-            'itemData' => $rows
+            'itemData' => $itemData
         ];
 
         $this->view('itemsupdate/index', $data);
