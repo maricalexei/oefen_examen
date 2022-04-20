@@ -11,11 +11,9 @@ class Item {
         // var_dump($result);exit();
         return $result;
     }
-    
-    public function deleteItems() {
-        $this->db->query("DELETE FROM `item` WHERE `item`.`id` = `{$id}`");
-        // $result = $this->db->resultSet();
-        // var_dump($result);exit();
-        // return $result;
+    public function deleteitems($id){
+        $this->db->query("DELETE FROM `item` WHERE `item`.`id` = :id");
+        $this->db->bind(':id', $id, PDO::PARAM_INT);
+        return $this->db->execute();
     }
 }
