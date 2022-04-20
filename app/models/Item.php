@@ -9,7 +9,6 @@ class Item {
     public function getItems() {
         $this->db->query("SELECT * FROM item");
         $result = $this->db->resultSet();
-        // var_dump($result);exit();
         return $result;
     }
     public function deleteitem($id){
@@ -25,7 +24,6 @@ class Item {
         $this->db->bind(':typenr', $typenr);
         $this->db->bind(':purchasedate', $purchasedate);
         $this->db->bind(':prijs', $prijs);
-        
         return $this->db->execute();
     }
 }

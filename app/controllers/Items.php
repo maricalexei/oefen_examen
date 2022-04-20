@@ -19,7 +19,6 @@ class Items extends Controller {
         $this->view('items/index', $data);
     }
     public function delete($id) {
-        // $this->db->query("DELETE FROM `item` WHERE `item`.`id` = `{$id}`");
         $this->itemModel->deleteItem($id);
         $data = [
             'deletestatus' => "het record met het id = $id is verwijdert"
@@ -31,19 +30,13 @@ class Items extends Controller {
     public function create() {
         $this->view('items/create');
     }
-
-    //itemcreates the information in database through adminModel
     public function itemCreate()
     {
-    //Initiating indexes through $_POST variable
         $description  = $_POST['description'];
         $typenr = $_POST['typenr'];
         $purchasedate = $_POST['purchasedate'];
         $prijs = $_POST['prijs'];
-
-
         $this->itemModel->itemCreate($description, $typenr, $purchasedate, $prijs);
-    //Redirect to items index after storing data
         $this->redirect('items');
     }
 }
