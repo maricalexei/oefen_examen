@@ -1,0 +1,30 @@
+@startuml
+left to right direction
+actor baliemedewerker #line:blue
+rectangle {
+(login) -> (navigate to a page where objects are retrieved by students and teachers)
+(login) ---> (fetch an overview containing all ICT Items that are reserved for today but have not been picked up)
+(login) ---> (Navigate to a students/teacher loan IT items page)
+
+(Navigate to a students/teacher loan IT items page) -> (scan products that are being borrowed)
+(scan products that are being borrowed) -> (barcode scanning of a student/teacher card)
+(barcode scanning of a student/teacher card) -> (scanning the issue object)
+(scanning the issue object) ->(The loan date is registered by the system)
+(The loan date is registered by the system) -> (The ICT item is given the loaned status)
+
+
+(navigate to a page where objects are retrieved by students and teachers) -> (barcode scanning of a student/teacher card)
+(barcode scanning of a student/teacher card) --> (returned IC item is scanned)
+(returned IC item is scanned) -> (The return date is recorded by the system)
+(The return date is recorded by the system) -> (The ICT item is given the loanable status)
+(The ICT item is given the loanable status) -> (notification if the IT item is returned after loan date)
+(notification if the IT item is returned after loan date) -> (if the student has returned 2 or more items after the loan period)
+(if the student has returned 2 or more items after the loan period) -> (The student will receive an e-mail)
+(The student will receive an e-mail) -> (Student must contact the administrator in order to be able to reserve/pick up ICT items again)
+(fetch an overview containing all ICT Items that are reserved for today but have not been picked up) -> (presses a button that extends the reservations for teachers by 24 hours)
+(presses a button that extends the reservations for teachers by 24 hours) -> (send an email to all teachers stating to pick up their reservered item within 24H)
+(fetch an overview containing all ICT Items that are reserved for today but have not been picked up) --> (Not retrieved ICT Items from student reservations are canceled by pressing a button.)
+(if the student has returned 2 or more items after the loan period) --> (no longer able to loan items)
+}
+
+@enduml
