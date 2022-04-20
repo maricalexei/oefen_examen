@@ -12,7 +12,7 @@ class Item {
         // var_dump($result);exit();
         return $result;
     }
-    public function deleteitems($id){
+    public function deleteitem($id){
         $this->db->query("DELETE FROM `item` WHERE `item`.`id` = :id");
         $this->db->bind(':id', $id, PDO::PARAM_INT);
         return $this->db->execute();

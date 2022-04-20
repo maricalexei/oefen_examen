@@ -18,7 +18,7 @@ class Items extends Controller {
 
         $this->view('items/index', $data);
     }
-    public function deleteitem($id) {
+    public function delete($id) {
         // $this->db->query("DELETE FROM `item` WHERE `item`.`id` = `{$id}`");
         $this->itemModel->deleteItem($id);
         $data = [
