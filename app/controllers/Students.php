@@ -8,7 +8,7 @@ class students extends Controller {
         $studentData = $this->studentModel->getstudents();
         $rows = "";
         foreach($studentData as $value) {
-            $rows .= $value->id . " " . $value->description . " " . $value->typenr . " " . $value->purchasedate . " " . $value->prijs . " " . "<a href='../studentsupdate/index/$value->id'>edit</a>". " " . "<a href='../students/delete/$value->id'>delete</a>";
+            $rows .= $value->firstname . " " . $value->lastname . " " . $value->infix . " " . $value->email . " " . $value->phonenumber . " " . $value->role . " " . $value->studentnr . " " . $value->class . " " . "<a href='../studentsupdate/index/$value->id'>edit</a>". " " . "<a href='../students/delete/$value->id'>delete</a>";
             $rows .= "<br>";
         }
 
