@@ -15,12 +15,12 @@ class Item {
         $this->db->bind(':id', $id, PDO::PARAM_INT);
         return $this->db->execute();
     }
-    public function itemCreate($description, $typenr, $purchasedate, $prijs)
+    public function itemCreate($description, $typenr, $rentaldate, $prijs)
     {
-        $this->db->query("INSERT INTO {$this->table} (`id`, `description`, `typenr`, `purchasedate`, `prijs`) VALUES (NULL, :description, :typenr, :purchasedate, :prijs)");
+        $this->db->query("INSERT INTO {$this->table} (`id`, `description`, `typenr`, `rentaldate`, `prijs`) VALUES (NULL, :description, :typenr, :rentaldate, :prijs)");
         $this->db->bind(':description', $description);
         $this->db->bind(':typenr', $typenr);
-        $this->db->bind(':purchasedate', $purchasedate);
+        $this->db->bind(':rentaldate', $rentaldate);
         $this->db->bind(':prijs', $prijs);
         return $this->db->execute();
     }

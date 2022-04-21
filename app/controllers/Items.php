@@ -8,7 +8,7 @@ class Items extends Controller {
         $itemData = $this->itemModel->getItems();
         $rows = "";
         foreach($itemData as $value) {
-            $rows .= $value->id . " " . $value->description . " " . $value->typenr . " " . $value->purchasedate . " " . $value->prijs . " " . "<a href='../itemsupdate/index/$value->id'>edit</a>". " " . "<a href='../items/delete/$value->id'>delete</a>";
+            $rows .= $value->id . " " . $value->description . " " . $value->typenr . " " . $value->rentaldate . " " . $value->prijs . " " . "<a href='../itemsupdate/index/$value->id'>edit</a>". " " . "<a href='../items/delete/$value->id'>delete</a>";
             $rows .= "<br>";
         }
 
@@ -34,9 +34,9 @@ class Items extends Controller {
     {
         $description  = $_POST['description'];
         $typenr = $_POST['typenr'];
-        $purchasedate = $_POST['purchasedate'];
+        $rentaldate = $_POST['rentaldate'];
         $prijs = $_POST['prijs'];
-        $this->itemModel->itemCreate($description, $typenr, $purchasedate, $prijs);
+        $this->itemModel->itemCreate($description, $typenr, $rentaldate, $prijs);
         $this->redirect('items');
     }
 }
