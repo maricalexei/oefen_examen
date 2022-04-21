@@ -2,13 +2,13 @@
 
 class Pages extends Controller
 {
-    public function __construct()
-    {
-
-    }
 
     public function index(){
         $this->view('pages/index');
+    }
+
+    public function loan(){
+        $this->view('pages/loan');
     }
 
 }
